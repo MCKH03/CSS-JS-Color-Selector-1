@@ -1,0 +1,129 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+:root {
+  --grad-orange: #ffa51a, #ff910c, #ff7c07, #ff640c, #ff4816;
+  --grad-green: #3cfd7f, #02fa99, #00f6af, #00f1c1, #12ebcf;
+  --grad-blue: #2eadff, #3d83ff, #7e61ff;
+
+  --body-orange: #ff7c07;
+  --body-green: #00f6af;
+  --body-blue: #3d83ff;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: rgb(255, 145, 0);
+  transition: all 0.3s;
+}
+
+.container {
+  width: 30rem;
+  height: 10rem;
+  background-color: #29292c;
+  border-radius: 1.5rem;
+  padding: 0.5rem 1.5rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.container::before {
+  content: "";
+  position: absolute;
+  inset: 0.2rem;
+  background: #18181b;
+  border-radius: 1.5rem;
+}
+
+.circle-box {
+  background: #29292c;
+  z-index: 1;
+  width: 6.5rem;
+  height: 6.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  position: relative;
+}
+
+.circle-box:hover {
+  cursor: pointer;
+}
+
+.circle-box.active {
+  background: linear-gradient(to right bottom, var(--grad-orange));
+}
+
+.circle {
+  position: absolute;
+  inset: 0px;
+  z-index: 2;
+  border-radius: 50%;
+  outline: 0px solid rgba(0, 0, 0);
+
+  transition: all 0.3s;
+}
+
+.circle-box.active .circle {
+  inset: 12px;
+  outline: 7px solid black;
+}
+
+.circle--orange {
+  background: linear-gradient(to right bottom, var(--grad-orange));
+}
+
+.circle--green {
+  background: linear-gradient(135deg, var(--grad-green));
+}
+
+.circle--blue {
+  background: linear-gradient(to right bottom, var(--grad-blue));
+}
+
+/* .circle-box.active {
+  padding: 1rem;
+} */
+
+.bar {
+  position: absolute;
+  height: 65%;
+  width: 0.5rem;
+  background-color: var(--body-orange);
+  border-radius: 5rem;
+  z-index: 2;
+  transition: all 0.3s;
+}
+
+.bar--left {
+  left: 1rem;
+}
+
+.bar--right {
+  right: 1rem;
+}
+
+.container:hover .bar--left {
+  left: 1.3rem;
+}
+
+.container:hover .bar--right {
+  right: 1.3rem;
+}
